@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 // Classe gérant les erreurs (404, 403)
-class ErrorController extends CoreController
+class ErrorController extends FrontCoreController
 {
     /**
      * Méthode gérant l'affichage de la page 404

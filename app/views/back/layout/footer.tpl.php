@@ -1,6 +1,6 @@
 
     <footer class="text-center">
-        <a class="nav-link" href="#">Vers le back office</a>
+        <a class="nav-link" href="<?= $router->generate('main-home') ?>">Vers le front office</a>
     </footer>
     <!-- And for every user interaction, we import Bootstrap JS components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 

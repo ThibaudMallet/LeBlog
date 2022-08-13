@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 
-class MainController extends CoreController
+class MainController extends FrontCoreController
 {
     /**
      * Méthode s'occupant de la page d'accueil

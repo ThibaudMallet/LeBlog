@@ -226,7 +226,7 @@ class Post extends CoreModel
     public static function findAll()
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM `post`
+        $sql = 'SELECT *, post.id as post_id FROM `post`
         INNER JOIN `category`
         ON post.category_id = category.id';
         $pdoStatement = $pdo->query($sql);
@@ -238,7 +238,7 @@ class Post extends CoreModel
     public static function findAllByCategory($categoryId)
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM `post`
+        $sql = "SELECT *, post.id as post_id FROM `post`
         INNER JOIN `category`
         ON post.category_id = category.id
         WHERE category.id = $categoryId";

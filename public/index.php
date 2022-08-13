@@ -36,12 +36,42 @@ $router->map(
 
 $router->map(
     'GET',
-    '/category/[i:id]',
+    '/categorie/[i:id]',
     [
         'method' => 'category',
         'controller' => '\App\Controllers\CategoryController'
     ],
     'main-category'
+);
+
+$router->map(
+    'GET',
+    '/back',
+    [
+        'method' => 'home',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-home'
+);
+
+$router->map(
+    'GET',
+    '/back/articles',
+    [
+        'method' => 'article',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-article'
+);
+
+$router->map(
+    'GET',
+    '/back/categories',
+    [
+        'method' => 'category',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-category'
 );
 
 

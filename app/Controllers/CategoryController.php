@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 
-class CategoryController extends CoreController
+class CategoryController extends FrontCoreController
 {
     /**
      * Méthode s'occupant des pages categories

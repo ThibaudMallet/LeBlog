@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 
-class ArticleController extends CoreController
+class ArticleController extends FrontCoreController
 {
     /**
      * Méthode s'occupant de la page article

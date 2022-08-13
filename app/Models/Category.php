@@ -90,6 +90,16 @@ class Category extends CoreModel
         return $results;
     }
 
+    public static function findAllForHomePage()
+    {
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM `category` LIMIT 3';
+        $pdoStatement = $pdo->query($sql);
+        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Category');
+
+        return $results;
+    }
+
     public static function find($categoryId)
     {
         $pdo = Database::getPDO();

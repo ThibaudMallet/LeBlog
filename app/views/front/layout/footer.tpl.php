@@ -1,0 +1,10 @@
+
+    <footer class="text-center">
+        <a class="nav-link" href="<?= $router->generate('back-home') ?>">Vers le back office</a>
+    </footer>
+    <!-- And for every user interaction, we import Bootstrap JS components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+
+</html>
