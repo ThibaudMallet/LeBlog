@@ -14,6 +14,8 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
     $_SERVER['BASE_URI'] = '/';
 }
 
+// MAPPING FRONT 
+
 $router->map(
     'GET',
     '/',
@@ -44,6 +46,8 @@ $router->map(
     'main-category'
 );
 
+// MAPPING BACK
+
 $router->map(
     'GET',
     '/back',
@@ -73,6 +77,72 @@ $router->map(
     ],
     'back-category'
 );
+
+// Gestion de l'ajout, de la supression et de la modification d'une catégorie
+
+$router->map(
+    'GET',
+    '/back/category/add',
+    [
+        'method' => 'addCategory',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-categoryAdd'
+);
+
+$router->map(
+    'POST',
+    '/back/category/add',
+    [
+        'method' => 'insertCategory',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-categoryInsert'
+);
+
+$router->map(
+    'GET',
+    '/back/category/add/[i:id]',
+    [
+        'method' => 'modify',
+        'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
+    ],
+    'back-categoryModify'
+);
+
+$router->map(
+    'POST',
+    '/back/category/add/[i:id]',
+    [
+        'method' => 'update',
+        'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
+    ],
+    'back-categoryUpdate'
+);
+
+$router->map(
+    'GET',
+    '/back/category/delete/[i:id]',
+    [
+        'method' => 'delete',
+        'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
+    ],
+    'back-categoryDelete'
+);
+
+
+// Gestion de l'ajout d'un article 
+
+$router->map(
+    'GET',
+    '/back/article/add',
+    [
+        'method' => 'addArticle',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-articleAdd'
+);
+
 
 
 

@@ -109,4 +109,58 @@ class Category extends CoreModel
 
         return $category;
     }
+    public function insert()
+    {
+        $pdo = Database::getPDO();
+        $sql = "
+            INSERT INTO `category` (name, color)
+            VALUES (:name, :color)
+        ";
+        $sth = $pdo->prepare($sql);
+
+        $sth->bindValue('name', $this->name, PDO::PARAM_STR);
+        $sth->bindValue('color', $this->color, PDO::PARAM_STR);
+
+        $success = $sth->execute();
+
+        if ($success && $sth->rowCount()) {
+            $this->id = $pdo->lastInsertId();
+            return true;
+        }
+        return false;
+    }
+    public function update($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = "
+            UPDATE `category`
+            SET 
+            `name`= :name,
+            `color`= :color
+            WHERE id = $id
+        ";
+        $sth = $pdo->prepare($sql);
+
+        $sth->bindValue('name', $this->name, PDO::PARAM_STR);
+        $sth->bindValue('color', $this->color, PDO::PARAM_STR);
+
+        $success = $sth->execute();
+
+        if ($success && $sth->rowCount()) {
+            $this->id = $pdo->lastInsertId();
+            return true;
+        }
+        return false;
+    }
+
+    public function delete($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = "DELETE FROM `category` WHERE `id`=:id";
+
+        $query = $pdo->prepare($sql);
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+    }
 }
