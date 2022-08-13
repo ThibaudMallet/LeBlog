@@ -14,15 +14,35 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
     $_SERVER['BASE_URI'] = '/';
 }
 
-// $router->map(
-//     'GET',
-//     '/',
-//     [
-//         'method' => 'home',
-//         'controller' => '\App\Controllers\MainController' // On indique le FQCN de la classe
-//     ],
-//     'main-home'
-// );
+$router->map(
+    'GET',
+    '/',
+    [
+        'method' => 'home',
+        'controller' => '\App\Controllers\MainController'
+    ],
+    'main-home'
+);
+
+$router->map(
+    'GET',
+    '/articles',
+    [
+        'method' => 'article',
+        'controller' => '\App\Controllers\ArticleController'
+    ],
+    'main-article'
+);
+
+$router->map(
+    'GET',
+    '/category/[i:id]',
+    [
+        'method' => 'category',
+        'controller' => '\App\Controllers\CategoryController'
+    ],
+    'main-category'
+);
 
 
 
