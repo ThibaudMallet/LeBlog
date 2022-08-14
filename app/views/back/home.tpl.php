@@ -23,17 +23,8 @@
                                         <a href="#" class="btn btn-sm btn-warning">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
-                                        <!-- Example single danger button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-danger dropdown-toggle"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
-                                                <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
-                                            </div>
-                                        </div>
+                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php
@@ -42,7 +33,7 @@
                             </tbody>
                         </table>
                         <div class="d-grid gap-2">
-                            <a href="#" class="btn btn-success">Voir plus</a>
+                            <a href="<?= $router->generate('back-article') ?>" class="btn btn-success">Voir plus</a>
                         </div>
                     </div>
                 </div>
@@ -70,24 +61,15 @@
                                         <a href="#" class="btn btn-sm btn-warning">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
-                                        <!-- Example single danger button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-danger dropdown-toggle"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
-                                                <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
-                                            </div>
-                                        </div>
+                                        <a class="btn btn-sm btn-danger" href="<?= $router->generate('back-categoryDelete', ['id' => $category->getId()]) ?>"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
                         <div class="d-grid gap-2">
-                            <a href="#" class="btn btn-success">Voir plus</a>
+                            <a href="<?= $router->generate('back-category') ?>" class="btn btn-success">Voir plus</a>
                         </div>
                     </div>
                 </div>

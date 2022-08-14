@@ -28,7 +28,7 @@ $router->map(
 
 $router->map(
     'GET',
-    '/articles',
+    '/posts',
     [
         'method' => 'article',
         'controller' => '\App\Controllers\ArticleController'
@@ -38,7 +38,7 @@ $router->map(
 
 $router->map(
     'GET',
-    '/categorie/[i:id]',
+    '/category/[i:id]',
     [
         'method' => 'category',
         'controller' => '\App\Controllers\CategoryController'
@@ -60,7 +60,7 @@ $router->map(
 
 $router->map(
     'GET',
-    '/back/articles',
+    '/back/posts',
     [
         'method' => 'article',
         'controller' => '\App\Controllers\BackMainController'
@@ -104,7 +104,7 @@ $router->map(
     'GET',
     '/back/category/add/[i:id]',
     [
-        'method' => 'modify',
+        'method' => 'modifyCategory',
         'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
     ],
     'back-categoryModify'
@@ -114,7 +114,7 @@ $router->map(
     'POST',
     '/back/category/add/[i:id]',
     [
-        'method' => 'update',
+        'method' => 'updateCategory',
         'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
     ],
     'back-categoryUpdate'
@@ -124,7 +124,7 @@ $router->map(
     'GET',
     '/back/category/delete/[i:id]',
     [
-        'method' => 'delete',
+        'method' => 'deleteCategory',
         'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
     ],
     'back-categoryDelete'
@@ -135,12 +135,22 @@ $router->map(
 
 $router->map(
     'GET',
-    '/back/article/add',
+    '/back/post/add',
     [
         'method' => 'addArticle',
         'controller' => '\App\Controllers\BackMainController'
     ],
     'back-articleAdd'
+);
+
+$router->map(
+    'POST',
+    '/back/post/add',
+    [
+        'method' => 'insertArticle',
+        'controller' => '\App\Controllers\BackMainController'
+    ],
+    'back-articleInsert'
 );
 
 

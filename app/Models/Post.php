@@ -257,4 +257,28 @@ class Post extends CoreModel
 
         return $post;
     }
+
+    public function insert()
+    {
+        $pdo = Database::getPDO();
+        $sql = "
+            INSERT INTO `post` (title, resume, content, author, category_id)
+            VALUES (:title, :resume, :content, :author, :category_id)
+        ";
+        $sth = $pdo->prepare($sql);
+
+        $sth->bindValue('title', $this->title, PDO::PARAM_STR);
+        $sth->bindValue('resume', $this->resume, PDO::PARAM_STR);
+        $sth->bindValue('content', $this->content, PDO::PARAM_STR);
+        $sth->bindValue('author', $this->author, PDO::PARAM_STR);
+        $sth->bindValue('category_id', $this->category_id, PDO::PARAM_INT);
+
+        $success = $sth->execute();
+
+        if ($success && $sth->rowCount()) {
+            $this->id = $pdo->lastInsertId();
+            return true;
+        }
+        return false;
+    }
 }
