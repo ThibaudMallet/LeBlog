@@ -134,7 +134,11 @@ class BackMainController extends BackCoreController
 
     public function addArticle()
     {
-        $this->show('back/addArticle');
+        $categories = Category::findAll();
+        $viewData = [
+            'category' => $categories
+        ];
+        $this->show('back/addArticle', $viewData);
     }
     public function insertArticle()
     {
@@ -184,8 +188,10 @@ class BackMainController extends BackCoreController
     public function modifyPost($params)
     {
         $postToModify = Post::find($params);
+        $categories = Category::findAll();
         $viewData = [
-            'post' => $postToModify
+            'post' => $postToModify,
+            'category' => $categories
         ];
 
         $this->show('back/addArticle', $viewData);

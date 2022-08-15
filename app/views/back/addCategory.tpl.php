@@ -10,6 +10,7 @@
             <div class="mb-3">
                 <label for="color" class="form-label">Couleur</label>
                 <input value="<?= isset($viewData['category']) ? ($viewData['category'])->getColor() : "" ?>" name="color" type="text" class="form-control" id="color" placeholder="Sous-titre" aria-describedby="colorHelpBlock">
+                <small class="text-muted" >Entrez les 6 couleurs correspondantes au code hexa</small>
             </div>
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary mt-5">Valider</button>

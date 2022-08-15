@@ -199,11 +199,9 @@ class Post extends CoreModel
     /**
      * Set id of the category of the post
      *
-     * @param  int  $category_id  id of the category of the post
-     *
      * @return  self
      */ 
-    public function setCategory_id(int $category_id)
+    public function setCategory_id($category_id)
     {
         $this->category_id = $category_id;
 

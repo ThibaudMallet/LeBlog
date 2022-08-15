@@ -21,7 +21,12 @@
         </div>
         <div class="mb-3">
             <label for="category_id" class="form-label">Catégorie Id</label>
-            <input value="<?= isset($viewData['post']) ? ($viewData['post'])->getCategory_id() : "" ?>" name="category_id" type="number" class="form-control" id="category_id" placeholder="Id de la catégorie">
+            <select value="" name="category_id" class="form-select" aria-label="Default select example" id="category_id">
+            <option selected>Choisir une catégorie ci-dessous</option>
+            <?php foreach($viewData['category'] as $category) { ?>
+                <option name="category_id" class="form-control" value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
+            <?php } ?>
+            </select>
         </div>
         <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary mt-5">Valider</button>
