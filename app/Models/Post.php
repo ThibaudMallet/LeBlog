@@ -281,4 +281,43 @@ class Post extends CoreModel
         }
         return false;
     }
+    public function update($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = "
+            UPDATE `post`
+            SET 
+            `title`= :title,
+            `resume`= :resume,
+            `content`= :content,
+            `author`= :author,
+            `category_id`= :category_id
+            WHERE id = $id
+        ";
+        $sth = $pdo->prepare($sql);
+
+        $sth->bindValue('title', $this->title, PDO::PARAM_STR);
+        $sth->bindValue('resume', $this->resume, PDO::PARAM_STR);
+        $sth->bindValue('content', $this->content, PDO::PARAM_STR);
+        $sth->bindValue('author', $this->author, PDO::PARAM_STR);
+        $sth->bindValue('category_id', $this->category_id, PDO::PARAM_INT);
+
+        $success = $sth->execute();
+
+        if ($success && $sth->rowCount()) {
+            $this->id = $pdo->lastInsertId();
+            return true;
+        }
+        return false;
+    }
+    public function delete($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = "DELETE FROM `post` WHERE `id`=:id";
+
+        $query = $pdo->prepare($sql);
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+    }
 }

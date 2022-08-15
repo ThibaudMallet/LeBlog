@@ -153,6 +153,36 @@ $router->map(
     'back-articleInsert'
 );
 
+$router->map(
+    'GET',
+    '/back/post/add/[i:id]',
+    [
+        'method' => 'modifyPost',
+        'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
+    ],
+    'back-postModify'
+);
+
+$router->map(
+    'POST',
+    '/back/post/add/[i:id]',
+    [
+        'method' => 'updatePost',
+        'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
+    ],
+    'back-postUpdate'
+);
+
+$router->map(
+    'GET',
+    '/back/post/delete/[i:id]',
+    [
+        'method' => 'deletePost',
+        'controller' => '\App\Controllers\BackMainController' // On indique le FQCN de la classe
+    ],
+    'back-postDelete'
+);
+
 
 
 

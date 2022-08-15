@@ -21,10 +21,10 @@
                     <td><?= $post->getResume() ?></td>
                     <td><?= $post->getAuthor() ?></td>
                     <td class="text-end">
-                        <a href="#" class="btn btn-sm btn-warning">
+                        <a href="<?= $router->generate('back-postModify', ['id' => $post->post_id]) ?>" class="btn btn-sm btn-warning">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
-                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <a class="btn btn-sm btn-danger" href="<?= $router->generate('back-postDelete', ['id' => $post->post_id]) ?>"><i class="fa fa-trash-o" aria-hidden="true"></i>
                         </a>
                     </td>
                 </tr>
